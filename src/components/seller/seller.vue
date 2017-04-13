@@ -1,11 +1,22 @@
 <template>
   <div class="goods">
-    这是商家
+    <div class='content-wrapper'>
+
+    </div>
+    <div class='bulletin-wrapper'>
+
+    </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {}
+export default {
+  props: {
+    seller: {
+      type: Object
+    }
+  }
+}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
