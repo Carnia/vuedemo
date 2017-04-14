@@ -99,6 +99,12 @@
 
 <style lang="stylus" type="text/stylus">
   @import "../../common/stylus/mixin.styl"
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0
+  }
   .header
     position: relative
     overflow: hidden
