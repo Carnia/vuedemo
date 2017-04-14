@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" type="text/stylus">
   @import "common/stylus/index.styl"
   #app
     .tab
@@ -48,7 +48,6 @@ export default {
       width:100%
       height:40px
       line-height:40px
-      /*border: 1px solid #000*/
       border-1px(rgba(7,17,27,.1))
       .tab-item
         flex:1
@@ -59,6 +58,4 @@ export default {
           color: rgb(77,85,93)
           &.active
             color: rgb(240,20,20)
-    .content
-      text-align: center
 </style>
