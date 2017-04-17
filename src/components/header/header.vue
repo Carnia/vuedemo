@@ -99,8 +99,11 @@
 
 <style lang="stylus" type="text/stylus">
   @import "../../common/stylus/mixin.styl"
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
+  .fade-enter-active {
+    transition: all .5s
+  }
+  .fade-leave-active {
+    transition: all 1s
   }
   .fade-enter, .fade-leave-active {
     opacity: 0
