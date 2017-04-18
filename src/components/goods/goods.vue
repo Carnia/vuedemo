@@ -28,17 +28,23 @@
                   <span class='now'>￥{{food.price}}</span>
                   <span class='old' v-show='food.oldPrice'>￥{{food.oldPrice}}</span>
                 </div>
+                <div class="cartcontrol-wrapper">
+                  <cartcontrol :food='food'></cartcontrol>
+                </div>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
+    <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
+  import shopcart from 'components/shopcart/shopcart'
+  import cartcontrol from 'components/cartcontrol/cartcontrol'
   const ERR_OK = 0
   export default {
     props: {
@@ -85,14 +91,16 @@
           return
         }
         let foodList = this.$refs['food-wrapper'].getElementsByClassName('food-list-hook')
+        let el = foodList[index]
         // betterscroll 的scrollToElement api
-        this.foodScroll.scrollToElement(el, 500)
+        this.foodScroll.scrollToElement(el, 300)
       },
       _initScroll() {
         this.menuScroll = new BScroll(this.$refs['menu-wrapper'], {
           click: true
         })
         this.foodScroll = new BScroll(this.$refs['food-wrapper'], {
+          click: true,
           probeType: 3
         })
         this.foodScroll.on('scroll', (pos) => {
@@ -109,6 +117,10 @@
           this.listHeight.push(height)
         }
       }
+    },
+    components: {
+      shopcart,
+      cartcontrol
     }
   }
 </script>
@@ -213,4 +225,8 @@
             .old
               text-decoration: line-through
               font-size: 10px
+          .cartcontrol-wrapper
+            position: absolute
+            right: 0
+            bottom: 12px
 </style>
